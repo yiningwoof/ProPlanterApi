@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProPlanter.Models;
 
-namespace CmdApi.Migrations
+namespace ProPlanterAPI.Migrations
 {
     [DbContext(typeof(MyPlantContext))]
-    [Migration("20200726002552_AddMyPlantToDB")]
-    partial class AddMyPlantToDB
+    partial class MyPlantContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,13 +29,25 @@ namespace CmdApi.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DatePlanted")
+                    b.Property<DateTime?>("DatePlanted")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("LastWateredDate")
+                    b.Property<int?>("FertilizeFrequency")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LastFertilizedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastWateredDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WaterFrequency")

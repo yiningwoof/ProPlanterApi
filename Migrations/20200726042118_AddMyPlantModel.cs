@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CmdApi.Migrations
+namespace ProPlanterAPI.Migrations
 {
-    public partial class AddMyPlantToDB : Migration
+    public partial class AddMyPlantModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,10 +14,13 @@ namespace CmdApi.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
                     WaterFrequency = table.Column<int>(nullable: false),
                     LastWateredDate = table.Column<DateTime>(nullable: false),
+                    LastFertilizedDate = table.Column<DateTime>(nullable: false),
                     DatePlanted = table.Column<DateTime>(nullable: false),
-                    Age = table.Column<int>(nullable: false)
+                    Age = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProPlanter.Models;
 
-namespace CmdApi.Migrations
+namespace ProPlanterAPI.Migrations
 {
     [DbContext(typeof(MyPlantContext))]
-    [Migration("20200726022430_AddMyPlantCreatedQuantity")]
-    partial class AddMyPlantCreatedQuantity
+    [Migration("20200726054212_AddMyPlantCreatedFertilizerFrequency")]
+    partial class AddMyPlantCreatedFertilizerFrequency
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,16 +31,22 @@ namespace CmdApi.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DatePlanted")
+                    b.Property<DateTime?>("DatePlanted")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("LastWateredDate")
+                    b.Property<int?>("FertilizeFrequency")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LastFertilizedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastWateredDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")

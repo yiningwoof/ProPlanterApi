@@ -7,10 +7,13 @@ namespace ProPlanter.Models
         public string Name {get; set;}
         public string Type {get; set;}
         public int WaterFrequency {get; set;}
-        public DateTime LastWateredDate {get; set;}
-        public DateTime DatePlanted {get; set;}
+        public DateTime? LastWateredDate {get; set;}
+        public int? FertilizeFrequency {get; set;}
+        public DateTime? LastFertilizedDate {get; set;}
+        public DateTime? DatePlanted {get; set;}
         public int Age {get; set;}
-        public int Quantity {get; set;}
+        public int? Quantity {get; set;}
+
 
     }
 }

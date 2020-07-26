@@ -34,6 +34,14 @@ namespace ProPlanter.Controllers
             return myPlantItem;
         }
 
+        [HttpPost]
+        public ActionResult<MyPlant> PostMyPlantItem(MyPlant myPlant)
+        {
+            _context.MyPlantItems.Add(myPlant);
+            _context.SaveChanges();
+            return CreatedAtAction("GetMyPlantItem", new MyPlant{Id = myPlant.Id}, myPlant);
+        }
+
         // POST: api/myplants
         // [HttpPost]
         // public ActionResult<MyPlant> PostMyPlantItem(MyPlant)
