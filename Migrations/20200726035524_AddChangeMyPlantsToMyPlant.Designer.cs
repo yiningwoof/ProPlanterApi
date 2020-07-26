@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProPlanter.Models;
 
 namespace CmdApi.Migrations
 {
-    [DbContext(typeof(MyPlantsContext))]
-    partial class MyPlantsContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MyPlantContext))]
+    [Migration("20200726035524_AddChangeMyPlantsToMyPlant")]
+    partial class AddChangeMyPlantsToMyPlant
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace CmdApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ProPlanter.Models.MyPlants", b =>
+            modelBuilder.Entity("ProPlanter.Models.MyPlant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +51,7 @@ namespace CmdApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyPlantsItems");
+                    b.ToTable("MyPlantItems");
                 });
 #pragma warning restore 612, 618
         }

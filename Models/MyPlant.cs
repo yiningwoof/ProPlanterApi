@@ -1,7 +1,7 @@
 using System;
 namespace ProPlanter.Models
 {
-    public class MyPlants
+    public class MyPlant
     {
         public int Id {get; set;}
         public string Name {get; set;}

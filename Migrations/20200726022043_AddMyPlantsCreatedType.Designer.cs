@@ -9,9 +9,9 @@ using ProPlanter.Models;
 
 namespace CmdApi.Migrations
 {
-    [DbContext(typeof(MyPlantsContext))]
-    [Migration("20200726022043_AddMyPlantsCreatedType")]
-    partial class AddMyPlantsCreatedType
+    [DbContext(typeof(MyPlantContext))]
+    [Migration("20200726022043_AddMyPlantCreatedType")]
+    partial class AddMyPlantCreatedType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace CmdApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ProPlanter.Models.MyPlants", b =>
+            modelBuilder.Entity("ProPlanter.Models.MyPlant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace CmdApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyPlantsItems");
+                    b.ToTable("MyPlantItems");
                 });
 #pragma warning restore 612, 618
         }

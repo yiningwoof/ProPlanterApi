@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CmdApi.Migrations
 {
-    public partial class AddMyPlantsToDB : Migration
+    public partial class AddMyPlantToDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MyPlantsItems",
+                name: "MyPlantItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -21,14 +21,14 @@ namespace CmdApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MyPlantsItems", x => x.Id);
+                    table.PrimaryKey("PK_MyPlantItems", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MyPlantsItems");
+                name: "MyPlantItems");
         }
     }
 }

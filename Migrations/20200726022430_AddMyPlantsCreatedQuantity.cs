@@ -2,13 +2,13 @@
 
 namespace CmdApi.Migrations
 {
-    public partial class AddMyPlantsCreatedQuantity : Migration
+    public partial class AddMyPlantCreatedQuantity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
                 name: "Quantity",
-                table: "MyPlantsItems",
+                table: "MyPlantItems",
                 nullable: false,
                 defaultValue: 0);
         }
@@ -17,7 +17,7 @@ namespace CmdApi.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Quantity",
-                table: "MyPlantsItems");
+                table: "MyPlantItems");
         }
     }
 }
