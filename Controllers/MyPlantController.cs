@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ProPlanter.Models;
-
 
 namespace ProPlanter.Controllers
 {
@@ -17,14 +15,14 @@ namespace ProPlanter.Controllers
             _context = context;
         }
 
-        // Get: api/myplant
+        // Get: api/myplants
         [HttpGet]
         public ActionResult<IEnumerable<MyPlant>> GetMyPlant()
         {
             return _context.MyPlantItems;
         }
 
-        // GET: api/myplant/id
+        // GET: api/myplants/id
         [HttpGet("{id}")]
         public ActionResult<MyPlant> GetMyPlantItem(int id)
         {
@@ -36,7 +34,6 @@ namespace ProPlanter.Controllers
             return myPlantItem;
         }
 
-        // POST: api/myplant
         [HttpPost]
         public ActionResult<MyPlant> PostMyPlantItem(MyPlant myPlant)
         {
@@ -45,35 +42,12 @@ namespace ProPlanter.Controllers
             return CreatedAtAction("GetMyPlantItem", new MyPlant{Id = myPlant.Id}, myPlant);
         }
 
-        // PUT: api/myplant/id
-        [HttpPut("{id}")]
-        public ActionResult<MyPlant> PutMyPlantItem(int id, MyPlant myPlant)
-        {
-            if (id != myPlant.Id)
-            {
-                return BadRequest();
+        // POST: api/myplants
+        // [HttpPost]
+        // public ActionResult<MyPlant> PostMyPlantItem(MyPlant)
+        // {
 
-            }
-            _context.Entry(myPlant).State = EntityState.Modified; // marking what is modified and only save that piece in _context
-            _context.SaveChanges();
-            return NoContent();
-        }
-
-        // DELETE: api/myplant/id
-        [HttpDelete("{id}")]
-        public ActionResult<MyPlant> DeleteMyPlantItem(int id)
-        {
-            var myPlantItem = _context.MyPlantItems.Find(id);
-            if (myPlantItem == null)
-            {
-                return NotFound();
-            }
-            _context.MyPlantItems.Remove(myPlantItem);
-            _context.SaveChanges();
-            return myPlantItem;
-        }
-
-        
+        // }
 
     }
 }
