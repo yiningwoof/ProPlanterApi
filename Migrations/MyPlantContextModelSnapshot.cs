@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProPlanter.Models;
+using ProPlanterAPI.Models;
 
 namespace ProPlanterAPI.Migrations
 {
@@ -19,15 +19,12 @@ namespace ProPlanterAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ProPlanter.Models.MyPlant", b =>
+            modelBuilder.Entity("ProPlanterAPI.Models.MyPlant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DatePlanted")
                         .HasColumnType("datetime2");
@@ -42,9 +39,16 @@ namespace ProPlanterAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Price")
+                        .HasColumnType("int");
+
                     b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("QuantitySold")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")

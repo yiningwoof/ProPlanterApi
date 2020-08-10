@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ProPlanter.Models
+namespace ProPlanterAPI.Models
 {
     public class MyPlantContext : DbContext
     {
