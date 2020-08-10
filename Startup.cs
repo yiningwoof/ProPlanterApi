@@ -9,9 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using ProPlanter.Models;
+using ProPlanterAPI.Models;
 
-namespace ProPlanterApi
+namespace ProPlanterAPI
 {
     public class Startup
     {
