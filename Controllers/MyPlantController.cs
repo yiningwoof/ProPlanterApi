@@ -49,13 +49,13 @@ namespace ProPlanterAPI.Controllers
 
         [Route("api/[controller]/waterreminder/{name}")]
         [HttpGet]
-        public ActionResult<DateTime> GetPlantWaterReminder(string name)
+        public ActionResult<DateTime> GetPlantNextWaterDate(string name)
         {
             string lowerName = name.ToLower();
             var wateredPlant = _context.MyPlantItems.Where(p => p.Name == lowerName).FirstOrDefault();
             DateTime lastWateredDate = (DateTime)wateredPlant.LastWateredDate;
-            DateTime nextWaterDate = 
-            return lastWateredDate;
+            DateTime nextWaterDate = lastWateredDate.AddDays(wateredPlant.WaterFrequency);
+            return nextWaterDate.Date;
         }
 
     }
