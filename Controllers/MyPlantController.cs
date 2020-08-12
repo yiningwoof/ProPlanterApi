@@ -58,5 +58,16 @@ namespace ProPlanterAPI.Controllers
             return nextWaterDate.Date;
         }
 
+        [Route("api/[controller]/fertilizereminder/{name}")]
+        [HttpGet]
+        public ActionResult<DateTime> GetPlantNextFertilizeDate(string name)
+        {
+            string lowerName = name.ToLower();
+            var fertilizedPlant = _context.MyPlantItems.Where(p => p.Name == lowerName).FirstOrDefault();
+            DateTime lastFertilizedDate = (DateTime)fertilizedPlant.LastFertilizedDate;
+            DateTime nextWaterDate = lastFertilizedDate.AddDays(fertilizedPlant.WaterFrequency);
+            return nextWaterDate.Date;
+        }
+
     }
 }
